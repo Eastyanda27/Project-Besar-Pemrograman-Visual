@@ -50,7 +50,7 @@ namespace Tugas_Besar
             user.username = textBox2.Text;
             user.password = textBox1.Text;
             user.nama = textBox3.Text;
-            //user.tanggal_lahir = dateTimePicker1.Value.ToString("dd-MM-yyyy");
+            user.tanggal_lahir = dateTimePicker1.Value.ToString("yyyyMMdd");
             user.jenis_kelamin = comboBox1.SelectedItem.ToString();
             user.no_telepon = textBox4.Text;
             user.hak_akses = comboBox2.SelectedItem.ToString();
@@ -77,6 +77,8 @@ namespace Tugas_Besar
             {
                 MessageBox.Show("Tambah User Berhasil");
                 this.Close();
+                FormDataPegawai frmAdm = new FormDataPegawai();
+                frmAdm.Show();
             }
             else
             {
@@ -115,6 +117,34 @@ namespace Tugas_Besar
             this.Hide();
             FormLaporanHarian frmAdm = new FormLaporanHarian();
             frmAdm.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var isi = "1234567890abcdefghijklmnopqrstuvwxyz";
+            var random = new char[8];
+            var acak = new Random();
+
+            for (int i = 0; i < random.Length; i++)
+            {
+                random[i] = isi[acak.Next(isi.Length)];
+            }
+
+            textBox2.Text = new string(random);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var isi = "1234567890abcdefghijklmnopqrstuvwxyz";
+            var random = new char[8];
+            var acak = new Random();
+
+            for (int i = 0; i < random.Length; i++)
+            {
+                random[i] = isi[acak.Next(isi.Length)];
+            }
+
+            textBox1.Text = new string(random);
         }
     }
 }

@@ -35,12 +35,14 @@ namespace Tugas_Besar
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.FotoProfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TanggalLahir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JenisKelamin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoTelepon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tindakan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gambar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggal_lahir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jenis_kelamin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.no_telepon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hak_akses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hapus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,7 +75,7 @@ namespace Tugas_Besar
             this.txtboxCariPengguna.Name = "txtboxCariPengguna";
             this.txtboxCariPengguna.Size = new System.Drawing.Size(165, 20);
             this.txtboxCariPengguna.TabIndex = 18;
-            this.txtboxCariPengguna.Text = "Cari Pegawai...";
+            this.txtboxCariPengguna.Text = "Cari Nama Pegawai...";
             // 
             // pictureBox7
             // 
@@ -84,6 +86,7 @@ namespace Tugas_Besar
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 33;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox8
             // 
@@ -101,46 +104,66 @@ namespace Tugas_Besar
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(147)))), ((int)(((byte)(241)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FotoProfil,
-            this.Nama,
-            this.TanggalLahir,
-            this.JenisKelamin,
-            this.NoTelepon,
-            this.Tindakan});
+            this.gambar,
+            this.username,
+            this.nama,
+            this.tanggal_lahir,
+            this.jenis_kelamin,
+            this.no_telepon,
+            this.hak_akses,
+            this.hapus});
             this.dataGridView1.Location = new System.Drawing.Point(84, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(643, 272);
             this.dataGridView1.TabIndex = 35;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // FotoProfil
+            // gambar
             // 
-            this.FotoProfil.HeaderText = "Foto Profil";
-            this.FotoProfil.Name = "FotoProfil";
+            this.gambar.DataPropertyName = "gambar";
+            this.gambar.HeaderText = "Gambar";
+            this.gambar.Name = "gambar";
             // 
-            // Nama
+            // username
             // 
-            this.Nama.HeaderText = "Nama";
-            this.Nama.Name = "Nama";
+            this.username.DataPropertyName = "username";
+            this.username.HeaderText = "Username";
+            this.username.Name = "username";
             // 
-            // TanggalLahir
+            // nama
             // 
-            this.TanggalLahir.HeaderText = "Tanggal Lahir";
-            this.TanggalLahir.Name = "TanggalLahir";
+            this.nama.DataPropertyName = "nama";
+            this.nama.HeaderText = "Nama";
+            this.nama.Name = "nama";
             // 
-            // JenisKelamin
+            // tanggal_lahir
             // 
-            this.JenisKelamin.HeaderText = "Jenis Kelamin";
-            this.JenisKelamin.Name = "JenisKelamin";
+            this.tanggal_lahir.DataPropertyName = "tanggal_lahir";
+            this.tanggal_lahir.HeaderText = "Tanggal Lahir";
+            this.tanggal_lahir.Name = "tanggal_lahir";
             // 
-            // NoTelepon
+            // jenis_kelamin
             // 
-            this.NoTelepon.HeaderText = "No Telepon";
-            this.NoTelepon.Name = "NoTelepon";
+            this.jenis_kelamin.DataPropertyName = "jenis_kelamin";
+            this.jenis_kelamin.HeaderText = "Jenis Kelamin";
+            this.jenis_kelamin.Name = "jenis_kelamin";
             // 
-            // Tindakan
+            // no_telepon
             // 
-            this.Tindakan.HeaderText = "";
-            this.Tindakan.Name = "Tindakan";
+            this.no_telepon.DataPropertyName = "no_telepon";
+            this.no_telepon.HeaderText = "No Telepon";
+            this.no_telepon.Name = "no_telepon";
+            // 
+            // hak_akses
+            // 
+            this.hak_akses.DataPropertyName = "hak_akses";
+            this.hak_akses.HeaderText = "Hak Akses";
+            this.hak_akses.Name = "hak_akses";
+            // 
+            // hapus
+            // 
+            this.hapus.HeaderText = "Hapus";
+            this.hapus.Name = "hapus";
             // 
             // button2
             // 
@@ -273,6 +296,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel3);
             this.Name = "FormDataPegawai";
             this.Text = "Data Pegawai";
+            this.Load += new System.EventHandler(this.FormDataPegawai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -292,12 +316,6 @@ namespace Tugas_Besar
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FotoProfil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nama;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TanggalLahir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JenisKelamin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoTelepon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tindakan;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
@@ -308,5 +326,13 @@ namespace Tugas_Besar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gambar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggal_lahir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jenis_kelamin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn no_telepon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hak_akses;
+        private System.Windows.Forms.DataGridViewButtonColumn hapus;
     }
 }

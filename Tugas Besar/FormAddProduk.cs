@@ -29,16 +29,19 @@ namespace Tugas_Besar
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
-                //pbProfile.Image = new Bitmap(open.FileName);
-                // image file path  
-                lblFileName.Text = open.FileName;
-                if (open.FileName != "") pictureBox7.Image = new Bitmap(open.FileName);
+                string picture = open.FileName.ToString();
+                lblFileName.Text = picture;
+                pictureBox7.ImageLocation = picture;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            byte[] imgbt = null;
+            FileStream fstream = new FileStream(this.lblFileName.Text, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fstream);
+            imgbt = br.ReadBytes((int)fstream.Length);
+
             Produk produk = new Produk();
             produk.no_produk = textBox2.Text;
             produk.no_barcode = textBox5.Text;
@@ -48,24 +51,8 @@ namespace Tugas_Besar
             produk.jumlah_produk = Convert.ToInt32(textBox6.Text);
             produk.jumlah_jual = Convert.ToInt32(textBox7.Text);
 
-            //copy img
-            var source = lblFileName.Text;
-            DateTime dateTime = DateTime.Now;
-            var fileName = "img_" + dateTime.Ticks.ToString();
-            var destinationFolder = Path.Combine(Environment.CurrentDirectory, "gambar");
-            var destination = Path.Combine(destinationFolder, fileName);
-            try
-            {
-                File.Copy(source, destination);
-                produk.gambar = destination.ToString();
-            }
-            catch (Exception err)
-            {
-                produk.gambar = "";
-                String error = err.Message;
-            }
 
-            String response = produk.insert();
+            String response = produk.Insert();
             if (response == null)
             {
                 MessageBox.Show("Tambah Produk Berhasil");
@@ -122,6 +109,20 @@ namespace Tugas_Besar
         private void FormAddProduk_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var isi = "1234567890";
+            var random = new char[4];
+            var acak = new Random();
+
+            for (int i = 0; i < random.Length; i++)
+            {
+                random[i] = isi[acak.Next(isi.Length)];
+            }
+
+            textBox2.Text = new string(random);
         }
     }
 }

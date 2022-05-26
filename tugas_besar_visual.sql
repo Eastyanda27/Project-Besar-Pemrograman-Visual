@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2022 at 05:42 AM
+-- Generation Time: May 26, 2022 at 06:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -35,7 +35,7 @@ CREATE TABLE `produk` (
   `harga_jual` int(11) DEFAULT NULL,
   `jumlah_produk` int(11) DEFAULT NULL,
   `jumlah_jual` int(11) DEFAULT NULL,
-  `gambar` varchar(250) DEFAULT NULL
+  `gambar` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,8 +43,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`no_produk`, `no_barcode`, `nama_produk`, `jenis_produk`, `harga_jual`, `jumlah_produk`, `jumlah_jual`, `gambar`) VALUES
-('3444', '858726137', 'Tas', 'aaaa', 120000, 7, 0, ''),
-('9909', '748721', 'abfawd', 'wadawwf', 13000, 44, 0, '');
+('2222', '2222222', 'aaa', 'aaa', 150000, 44, 0, '');
 
 -- --------------------------------------------------------
 
@@ -56,11 +55,11 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(250) DEFAULT NULL,
   `nama` varchar(50) DEFAULT NULL,
-  `tanggal_lahir` date DEFAULT NULL,
+  `tanggal_lahir` varchar(15) DEFAULT NULL,
   `jenis_kelamin` varchar(10) DEFAULT NULL,
   `no_telepon` varchar(15) DEFAULT NULL,
   `hak_akses` varchar(10) DEFAULT NULL,
-  `gambar` varchar(250) DEFAULT NULL
+  `gambar` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -68,7 +67,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `nama`, `tanggal_lahir`, `jenis_kelamin`, `no_telepon`, `hak_akses`, `gambar`) VALUES
-('eastyanda', 'Gojin123', 'AAA', '2022-05-18', 'AAA', 'AAA', 'Admin', '');
+('3xibc90d', 'lx8t00f9', 'www', '20220505', 'Perempuan', '213231', 'Pegawai', ''),
+('eastyanda', 'Gojin123', 'AAA', '20220518', 'AAA', 'AAA', 'Admin', ''),
+('s7pwzprg', 'ia31wutv', 'Eastyanda', '20220503', 'Laki Laki', '0895376389461', 'Pegawai', '');
 
 --
 -- Indexes for dumped tables

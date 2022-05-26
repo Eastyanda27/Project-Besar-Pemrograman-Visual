@@ -61,6 +61,8 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -104,6 +106,8 @@ namespace Tugas_Besar
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(157)))), ((int)(((byte)(184)))));
+            this.panel5.Controls.Add(this.button5);
+            this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.comboBox2);
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.textBox4);
@@ -208,16 +212,16 @@ namespace Tugas_Besar
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 22);
+            this.textBox2.Location = new System.Drawing.Point(71, 22);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 20);
+            this.textBox2.Size = new System.Drawing.Size(149, 20);
             this.textBox2.TabIndex = 44;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 64);
+            this.textBox1.Location = new System.Drawing.Point(71, 64);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 20);
+            this.textBox1.Size = new System.Drawing.Size(149, 20);
             this.textBox1.TabIndex = 43;
             // 
             // label11
@@ -406,6 +410,26 @@ namespace Tugas_Besar
             this.label3.Text = "CATAT YUK";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(8, 63);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 23);
+            this.button4.TabIndex = 61;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(8, 20);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(57, 23);
+            this.button5.TabIndex = 62;
+            this.button5.Text = "Add";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // FormAddPegawai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,5 +496,7 @@ namespace Tugas_Besar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }

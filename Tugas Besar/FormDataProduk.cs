@@ -87,8 +87,6 @@ namespace Tugas_Besar
             loadDataProduk();
         }
 
-
-            
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -115,17 +113,16 @@ namespace Tugas_Besar
 
             if (Convert.ToBoolean(selectedRow.Cells["hapus"].Selected) == true)
             {
-                if (produk.jumlah_jual != 0)
+                if (produk.jumlah_jual == 0)
                 {
                     MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                     DialogResult result = MessageBox.Show("Yakin menghapus data barang " + produk.nama_produk + " ?", "Hapus Data Barang", buttons);
                     if (result == DialogResult.Yes)
                     {
                         string response;
-                        response = Produk.Delete();
+                        response = produk.Delete();
                         if (response == null) MessageBox.Show("Sukses");
                         else MessageBox.Show(response);
-                        //reload data
                         loadDataProduk();
                     }
                     else
@@ -136,15 +133,16 @@ namespace Tugas_Besar
                 }
                 else
                 {
-                    MessageBox.Show("Tidak dapat menghapus barang karena barang sudah terjual");
+                    MessageBox.Show("Tidak dapat menghapus barang karena barang sudah pernah terjual");
                 }
 
             }
-            else if (Convert.ToBoolean(selectedRow.Cells["ubah"].Selected) == true)
+            else if (Convert.ToBoolean(selectedRow.Cells["edit"].Selected) == true)
             {
-                FormEditProduk frmEditProduk = new FormEditProduk(produk);
+                FormEditProduk frmEditProduk = new FormEditProduk();
                 frmEditProduk.FormClosing += new FormClosingEventHandler(ChildFromClosing);
                 frmEditProduk.Show();
+                this.Hide();
             }
         }
 

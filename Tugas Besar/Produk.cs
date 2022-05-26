@@ -32,7 +32,7 @@ namespace Tugas_Besar
             cmd = new MySqlCommand();
         }
 
-        public string insert()
+        public string Insert()
         {
             string result = null;
             using (MySqlCommand cmd = new MySqlCommand("INSERT INTO produk (no_produk,no_barcode," +
@@ -71,8 +71,8 @@ namespace Tugas_Besar
                 try
                 {
                     conn.Open();
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    dt.Load(rdr);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.Fill(dt);
                     conn.Close();
                 }
                 catch (Exception e)
@@ -94,6 +94,7 @@ namespace Tugas_Besar
                 cmd.Parameters.AddWithValue("@nama_produk", nama_produk);
             }
             else cmd.CommandText = "SELECT * FROM produk";
+
             try
             {
                 conn.Open();

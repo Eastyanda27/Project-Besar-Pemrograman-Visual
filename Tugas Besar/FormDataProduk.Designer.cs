@@ -45,7 +45,7 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.gambar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.gambar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.no_produk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.no_barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jenis_produk = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -240,10 +240,10 @@ namespace Tugas_Besar
             // 
             // gambar
             // 
+            this.gambar.DataPropertyName = "gambar";
             this.gambar.HeaderText = "Gambar";
             this.gambar.Name = "gambar";
             this.gambar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.gambar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // no_produk
             // 
@@ -289,6 +289,7 @@ namespace Tugas_Besar
             // 
             // edit
             // 
+            this.edit.DataPropertyName = "edit";
             this.edit.HeaderText = "Edit";
             this.edit.Name = "edit";
             this.edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -297,6 +298,7 @@ namespace Tugas_Besar
             // 
             // hapus
             // 
+            this.hapus.DataPropertyName = "hapus";
             this.hapus.HeaderText = "Hapus";
             this.hapus.Name = "hapus";
             this.hapus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -347,7 +349,7 @@ namespace Tugas_Besar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewImageColumn gambar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gambar;
         private System.Windows.Forms.DataGridViewTextBoxColumn no_produk;
         private System.Windows.Forms.DataGridViewTextBoxColumn no_barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn jenis_produk;

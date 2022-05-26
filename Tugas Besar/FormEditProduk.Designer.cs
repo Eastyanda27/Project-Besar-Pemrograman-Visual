@@ -38,7 +38,6 @@ namespace Tugas_Besar
             this.label14 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace Tugas_Besar
             this.label3 = new System.Windows.Forms.Label();
             this.lblFileName = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -106,15 +106,16 @@ namespace Tugas_Besar
             this.button1.TabIndex = 56;
             this.button1.Text = "SIMPAN";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(157)))), ((int)(((byte)(184)))));
+            this.panel5.Controls.Add(this.textBox6);
             this.panel5.Controls.Add(this.textBox5);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.textBox4);
-            this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.textBox2);
@@ -157,14 +158,6 @@ namespace Tugas_Besar
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(355, 20);
             this.textBox4.TabIndex = 51;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(8, 106);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(356, 21);
-            this.comboBox1.TabIndex = 49;
             // 
             // label13
             // 
@@ -374,6 +367,14 @@ namespace Tugas_Besar
             this.button3.TabIndex = 61;
             this.button3.Text = "Tambah Gambar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(8, 106);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(355, 20);
+            this.textBox6.TabIndex = 55;
             // 
             // FormEditProduk
             // 
@@ -392,6 +393,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel3);
             this.Name = "FormEditProduk";
             this.Text = "Edit Produk";
+            this.Load += new System.EventHandler(this.FormEditProduk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -416,7 +418,6 @@ namespace Tugas_Besar
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox2;
@@ -437,5 +438,6 @@ namespace Tugas_Besar
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox6;
     }
 }

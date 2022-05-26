@@ -61,6 +61,7 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -114,6 +115,7 @@ namespace Tugas_Besar
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(157)))), ((int)(((byte)(184)))));
+            this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.textBox7);
             this.panel5.Controls.Add(this.label9);
@@ -164,10 +166,10 @@ namespace Tugas_Besar
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 22);
+            this.textBox2.Location = new System.Drawing.Point(72, 22);
             this.textBox2.MaxLength = 13;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(167, 20);
+            this.textBox2.Size = new System.Drawing.Size(104, 20);
             this.textBox2.TabIndex = 56;
             // 
             // textBox6
@@ -397,6 +399,16 @@ namespace Tugas_Besar
             this.label3.Text = "CATAT YUK";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(9, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 23);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FormAddProduk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,5 +474,6 @@ namespace Tugas_Besar
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button4;
     }
 }
