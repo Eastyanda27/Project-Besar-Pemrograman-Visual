@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql;
 using MySql.Data.MySqlClient;
 
 namespace Tugas_Besar
 {
-    public class User
+    public class User : Connection
     {
-        protected static String conString = "server = localhost; database = tugas_besar_visual; uid = root; sslMode = none; password =";
-        static MySqlConnection conn;
+        static MySqlConnection conn = Connection.conString();
         static MySqlCommand cmd;
 
         public String username { get; set; }
@@ -29,7 +30,7 @@ namespace Tugas_Besar
 
         public User()
         {
-            conn = new MySqlConnection(conString);
+            conn = Connection.conString();
             cmd = new MySqlCommand();
         }
         public bool validasi()
@@ -46,7 +47,6 @@ namespace Tugas_Besar
                 if (rdr.HasRows)
                 {
                     rdr.Read();
-                    //user = new User(Convert.ToInt16(rdr["id_user"]), rdr["username"].ToString(), rdr["password"].ToString(), Convert.ToInt16(rdr["id_pegawai"]), Convert.ToInt16(rdr["role"]));
                     username = rdr["username"].ToString();
                     hak_akses = rdr["hak_akses"].ToString();
                     result = true;
@@ -91,7 +91,7 @@ namespace Tugas_Besar
 
         public static DataTable SelectFull()
         {
-            conn = new MySqlConnection(conString);
+            conn = Connection.conString();
             DataTable dt = new DataTable();
             using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE hak_akses = 'Pegawai'", conn))
             {
@@ -112,7 +112,6 @@ namespace Tugas_Besar
 
         public static DataTable Select (String nama)
         {
-            conn = new MySqlConnection(conString);
             DataTable dt = new DataTable();
             cmd = conn.CreateCommand();
             if (nama != "")
@@ -138,6 +137,36 @@ namespace Tugas_Besar
             return dt;
         }
 
+        public static User SelectUsername(string username)
+        {
+            User user = new User();
+            conn.Open();
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM user WHERE username = @username";
+            cmd.Parameters.AddWithValue("@username", username);
+            try
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    rdr.Read();
+                    user.username = rdr["username"].ToString();
+                    user.nama = rdr["nama"].ToString();
+                    user.tanggal_lahir = Convert.ToString(rdr["tanggal_lahir"]);
+                    user.jenis_kelamin = rdr["jenis_kelamin"].ToString();
+                    user.no_telepon = rdr["no_telepon"].ToString();
+                    user.hak_akses = rdr["hak_akses"].ToString();
+                    user.gambar = rdr["gambar"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                String error = e.Message;
+            }
+            conn.Close();
+            return user;
+        }
+
         public string Delete()
         {
             string result = null;
@@ -155,6 +184,81 @@ namespace Tugas_Besar
                     return e.Message;
                 }
             }
+            return result;
+        }
+
+        public string Update()
+        {
+            string result = null;
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE user SET username = @username, nama = @nama, " + 
+                "tanggal_lahir = @tanggal_lahir, jenis_kelamin = @jenis_kelamin, no_telepon = @no_telepon, " + 
+                "gambar = @gambar WHERE username = @username", conn))
+            {
+                cmd.Parameters.AddWithValue("@username", this.username);
+                cmd.Parameters.AddWithValue("@nama", this.nama);
+                cmd.Parameters.AddWithValue("@tanggal_lahir", this.tanggal_lahir);
+                cmd.Parameters.AddWithValue("@jenis_kelamin", this.jenis_kelamin);
+                cmd.Parameters.AddWithValue("@no_telepon", this.no_telepon);
+                cmd.Parameters.AddWithValue("@gambar", this.gambar);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    return e.Message;
+                }
+            }
+            return result;
+        }
+
+        public string UpdatePassword()
+        {
+            string result = null;
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE user SET password = @password WHERE username = @username", conn))
+            {
+                cmd.Parameters.AddWithValue("@username", this.username);
+                cmd.Parameters.AddWithValue("@password", this.password);
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    return e.Message;
+                }
+            }
+            return result;
+        }
+
+        public bool ValidasiPassword()
+        {
+            bool result = false;
+            conn.Open();
+            cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT username, password FROM user WHERE username = @username AND password = " + 
+                "@password";
+            cmd.Parameters.AddWithValue("@username", this.username);
+            cmd.Parameters.AddWithValue("@password", this.password);
+            try
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    rdr.Read();
+                    password = rdr["password"].ToString();
+                    result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                String error = e.Message;
+            }
+            conn.Close();
             return result;
         }
     }

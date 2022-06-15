@@ -148,11 +148,11 @@ namespace Tugas_Besar
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(350, 370);
+            this.label7.Location = new System.Drawing.Point(355, 370);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 18);
+            this.label7.Size = new System.Drawing.Size(75, 18);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Mode Kasir";
+            this.label7.Text = "Transaksi";
             // 
             // label8
             // 
@@ -250,6 +250,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
             this.Name = "FormDashboardAdm";
             this.Text = "Dashboard Admin";
             this.Load += new System.EventHandler(this.FormDashboardAdm_Load);

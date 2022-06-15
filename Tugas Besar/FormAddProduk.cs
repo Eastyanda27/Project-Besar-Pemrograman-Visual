@@ -15,10 +15,12 @@ namespace Tugas_Besar
 {
     public partial class FormAddProduk : Form
     {
-        public FormAddProduk()
+        User user;
+        public FormAddProduk(User user)
         {
             InitializeComponent();
             textBox7.Text = "0";
+            this.user = user;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -29,19 +31,15 @@ namespace Tugas_Besar
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                string picture = open.FileName.ToString();
-                lblFileName.Text = picture;
-                pictureBox7.ImageLocation = picture;
+                lblFileName.Text = open.FileName;
+                pictureBox7.Image = new Bitmap (open.FileName);
+                pictureBox7.ImageLocation = open.FileName;
+                pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] imgbt = null;
-            FileStream fstream = new FileStream(this.lblFileName.Text, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fstream);
-            imgbt = br.ReadBytes((int)fstream.Length);
-
             Produk produk = new Produk();
             produk.no_produk = textBox2.Text;
             produk.no_barcode = textBox5.Text;
@@ -51,13 +49,31 @@ namespace Tugas_Besar
             produk.jumlah_produk = Convert.ToInt32(textBox6.Text);
             produk.jumlah_jual = Convert.ToInt32(textBox7.Text);
 
+            var source = lblFileName.Text;
+            DateTime datetime = DateTime.Now;
+            var fileName = "img_" + datetime.Ticks.ToString();
+            var destinationFolder = Path.Combine(Environment.CurrentDirectory, "Gambar");
+            var destination = Path.Combine(destinationFolder, fileName);
+            try
+            {
+                File.Copy(source, destination);
+                produk.gambar = destination.ToString();
+
+            }
+            catch (Exception err)
+            {
+                produk.gambar = "";
+                String error = err.Message;
+
+            }
+
 
             String response = produk.Insert();
             if (response == null)
             {
                 MessageBox.Show("Tambah Produk Berhasil");
                 this.Hide();
-                FormDataProduk frmAdm = new FormDataProduk();
+                FormDataProduk frmAdm = new FormDataProduk(user);
                 frmAdm.Show();
             }
             else
@@ -69,40 +85,7 @@ namespace Tugas_Besar
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProduk frmAdm = new FormDataProduk();
-            frmAdm.Show();
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormDataProfil frmAdm = new FormDataProfil();
-            frmAdm.Show();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormKeuanganHarian frmAdm = new FormKeuanganHarian();
-            frmAdm.Show();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormDataPegawai frmAdm = new FormDataPegawai();
-            frmAdm.Show();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormLaporanHarian frmAdm = new FormLaporanHarian();
+            FormDataProduk frmAdm = new FormDataProduk(user);
             frmAdm.Show();
         }
 
@@ -123,6 +106,41 @@ namespace Tugas_Besar
             }
 
             textBox2.Text = new string(random);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDataProfil frmAdm = new FormDataProfil(user);
+            frmAdm.Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormKeuangan frmAdm = new FormKeuangan(user);
+            frmAdm.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDataPegawai frmAdm = new FormDataPegawai(user);
+            frmAdm.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormTransaksi frmAdm = new FormTransaksi(user);
+            frmAdm.Show();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLaporan frmAdm = new FormLaporan(user);
+            frmAdm.Show();
         }
     }
 }

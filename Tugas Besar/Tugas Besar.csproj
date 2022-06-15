@@ -33,11 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +55,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CetakProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CetakProduk.Designer.cs">
+      <DependentUpon>CetakProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SetDataTransaksi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetDataTransaksi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SetDataPegawai.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetDataPegawai.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SetDataProduk.cs">
+      <DependentUpon>SetDataProduk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\SetDataProduk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetDataProduk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CetakPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CetakPegawai.Designer.cs">
+      <DependentUpon>CetakPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CetakTransaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CetakTransaksi.Designer.cs">
+      <DependentUpon>CetakTransaksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTransaksiPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransaksiPegawai.Designer.cs">
+      <DependentUpon>FormTransaksiPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditPasswordPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditPasswordPegawai.Designer.cs">
+      <DependentUpon>FormEditPasswordPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditProfilPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditProfilPegawai.Designer.cs">
+      <DependentUpon>FormEditProfilPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataProfilPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataProfilPegawai.Designer.cs">
+      <DependentUpon>FormDataProfilPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboardPegawai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboardPegawai.Designer.cs">
+      <DependentUpon>FormDashboardPegawai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Keuangan.cs" />
+    <Compile Include="Laporan.cs" />
+    <Compile Include="ReportGenerator\CrystalReport\CrProduk.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrProduk.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGenerator\CrystalReport\CrPegawai.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrPegawai.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportGenerator\CrystalReport\CrTransaksi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrTransaksi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transaksi.cs" />
+    <Compile Include="FormTransaksi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransaksi.Designer.cs">
+      <DependentUpon>FormTransaksi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Produk.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Connection.cs" />
@@ -58,53 +157,17 @@
     <Compile Include="FormAddKeuangan.Designer.cs">
       <DependentUpon>FormAddKeuangan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKeuanganTahunan.cs">
+    <Compile Include="FormKeuangan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKeuanganTahunan.Designer.cs">
-      <DependentUpon>FormKeuanganTahunan.cs</DependentUpon>
+    <Compile Include="FormKeuangan.Designer.cs">
+      <DependentUpon>FormKeuangan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKeuanganBulanan.cs">
+    <Compile Include="FormLaporan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKeuanganBulanan.Designer.cs">
-      <DependentUpon>FormKeuanganBulanan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormKeuanganMingguan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormKeuanganMingguan.Designer.cs">
-      <DependentUpon>FormKeuanganMingguan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormKeuanganHarian.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormKeuanganHarian.Designer.cs">
-      <DependentUpon>FormKeuanganHarian.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLaporanTahunan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLaporanTahunan.Designer.cs">
-      <DependentUpon>FormLaporanTahunan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLaporanBulanan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLaporanBulanan.Designer.cs">
-      <DependentUpon>FormLaporanBulanan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLaporanMingguan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLaporanMingguan.Designer.cs">
-      <DependentUpon>FormLaporanMingguan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLaporanHarian.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLaporanHarian.Designer.cs">
-      <DependentUpon>FormLaporanHarian.cs</DependentUpon>
+    <Compile Include="FormLaporan.Designer.cs">
+      <DependentUpon>FormLaporan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddPegawai.cs">
       <SubType>Form</SubType>
@@ -168,32 +231,38 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CetakProduk.resx">
+      <DependentUpon>CetakProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CetakPegawai.resx">
+      <DependentUpon>CetakPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CetakTransaksi.resx">
+      <DependentUpon>CetakTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataProfilPegawai.resx">
+      <DependentUpon>FormDataProfilPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboardPegawai.resx">
+      <DependentUpon>FormDashboardPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPasswordPegawai.resx">
+      <DependentUpon>FormEditPasswordPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditProfilPegawai.resx">
+      <DependentUpon>FormEditProfilPegawai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransaksi.resx">
+      <DependentUpon>FormTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddKeuangan.resx">
       <DependentUpon>FormAddKeuangan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKeuanganTahunan.resx">
-      <DependentUpon>FormKeuanganTahunan.cs</DependentUpon>
+    <EmbeddedResource Include="FormKeuangan.resx">
+      <DependentUpon>FormKeuangan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKeuanganBulanan.resx">
-      <DependentUpon>FormKeuanganBulanan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormKeuanganMingguan.resx">
-      <DependentUpon>FormKeuanganMingguan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormKeuanganHarian.resx">
-      <DependentUpon>FormKeuanganHarian.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLaporanBulanan.resx">
-      <DependentUpon>FormLaporanBulanan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLaporanMingguan.resx">
-      <DependentUpon>FormLaporanMingguan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLaporanHarian.resx">
-      <DependentUpon>FormLaporanHarian.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLaporanTahunan.resx">
-      <DependentUpon>FormLaporanTahunan.cs</DependentUpon>
+    <EmbeddedResource Include="FormLaporan.resx">
+      <DependentUpon>FormLaporan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddPegawai.resx">
       <DependentUpon>FormAddPegawai.cs</DependentUpon>
@@ -225,6 +294,9 @@
     <EmbeddedResource Include="FormDashboardAdm.resx">
       <DependentUpon>FormDashboardAdm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTransaksiPegawai.resx">
+      <DependentUpon>FormTransaksiPegawai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -234,6 +306,51 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportGenerator\CrystalReport\CrProduk.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrProduk.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportGenerator\CrystalReport\CrPegawai.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrPegawai.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportGenerator\CrystalReport\CrTransaksi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrTransaksi.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DataSet\SetDataTransaksi.xsc">
+      <DependentUpon>SetDataTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SetDataTransaksi.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SetDataTransaksi.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\SetDataTransaksi.xss">
+      <DependentUpon>SetDataTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SetDataPegawai.xsc">
+      <DependentUpon>SetDataPegawai.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SetDataPegawai.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SetDataPegawai.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\SetDataPegawai.xss">
+      <DependentUpon>SetDataPegawai.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SetDataProduk.xsc">
+      <DependentUpon>SetDataProduk.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\SetDataProduk.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SetDataProduk.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\SetDataProduk.xss">
+      <DependentUpon>SetDataProduk.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -246,6 +363,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

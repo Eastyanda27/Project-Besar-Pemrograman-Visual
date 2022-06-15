@@ -15,63 +15,80 @@ namespace Tugas_Besar
 {
     public partial class FormDataPegawai : Form
     {
-        public FormDataPegawai()
+        User user;
+        public FormDataPegawai(User user)
         {
             InitializeComponent();
+            this.user = user;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "foto")
+            {
+                // Your code would go here - below is just the code I used to test 
+                string s = dataGridView1.Rows[e.RowIndex].Cells["gambar"].Value.ToString();
+                if (s != "") e.Value = Image.FromFile(s);
+                else e.Value = null;
+            }
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormAddPegawai frmAdm = new FormAddPegawai();
+            FormAddPegawai frmAdm = new FormAddPegawai(user);
             frmAdm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDashboardAdm frmAdm = new FormDashboardAdm();
+            FormDashboardAdm frmAdm = new FormDashboardAdm(user);
             frmAdm.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProfil frmAdm = new FormDataProfil();
+            FormDataProfil frmAdm = new FormDataProfil(user);
             frmAdm.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProduk frmAdm = new FormDataProduk();
+            FormDataProduk frmAdm = new FormDataProduk(user);
             frmAdm.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormKeuanganHarian frmAdm = new FormKeuanganHarian();
+            FormKeuangan frmAdm = new FormKeuangan(user);
             frmAdm.Show();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormTransaksi frmAdm = new FormTransaksi(user);
+            frmAdm.Show();
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLaporanHarian frmAdm = new FormLaporanHarian();
+            FormLaporan frmAdm = new FormLaporan(user);
             frmAdm.Show();
         }
 
         private void loadDataPegawai()
         {
+            User user = new User();
             DataTable dt = new DataTable();
             dt = User.SelectFull();
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["gambar"].Visible = false;
             dataGridView1.ColumnHeadersVisible = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Show();
@@ -120,9 +137,11 @@ namespace Tugas_Besar
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
+            User user = new User();
             DataTable dt = new DataTable();
             dt = User.Select(txtboxCariPengguna.Text);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["gambar"].Visible = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ColumnHeadersVisible = true;
             dataGridView1.Show();
@@ -131,6 +150,12 @@ namespace Tugas_Besar
         private void FormDataPegawai_Load(object sender, EventArgs e)
         {
             loadDataPegawai();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CetakPegawai frmAdm = new CetakPegawai();
+            frmAdm.Show();
         }
     }
 }

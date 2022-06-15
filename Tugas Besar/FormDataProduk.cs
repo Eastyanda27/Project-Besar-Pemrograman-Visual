@@ -15,9 +15,21 @@ namespace Tugas_Besar
 {
     public partial class FormDataProduk : Form
     {
-        public FormDataProduk()
+        User user;
+        public FormDataProduk(User user)
         {
             InitializeComponent();
+            this.user = user;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "foto")
+            {
+                string s = dataGridView1.Rows[e.RowIndex].Cells["gambar"].Value.ToString();
+                if (s != "") e.Value = Image.FromFile(s);
+                else e.Value = null;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -28,55 +40,59 @@ namespace Tugas_Besar
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormAddProduk frmAdm = new FormAddProduk();
+            FormAddProduk frmAdm = new FormAddProduk(user);
             frmAdm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDashboardAdm frmAdm = new FormDashboardAdm();
+            FormDashboardAdm frmAdm = new FormDashboardAdm(user);
             frmAdm.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProfil frmAdm = new FormDataProfil();
+            FormDataProfil frmAdm = new FormDataProfil(user);
             frmAdm.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormKeuanganHarian frmAdm = new FormKeuanganHarian();
+            FormKeuangan frmAdm = new FormKeuangan(user);
             frmAdm.Show();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataPegawai frmAdm = new FormDataPegawai();
+            FormDataPegawai frmAdm = new FormDataPegawai(user);
             frmAdm.Show();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormTransaksi frmAdm = new FormTransaksi(user);
+            frmAdm.Show();
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLaporanHarian frmAdm = new FormLaporanHarian();
+            FormLaporan frmAdm = new FormLaporan(user);
             frmAdm.Show();
         }
 
         private void loadDataProduk()
         {
+            Produk produk = new Produk();
             DataTable dt = new DataTable();
             dt = Produk.SelectFull();
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["gambar"].Visible = false;
             dataGridView1.ColumnHeadersVisible = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.Show();
@@ -89,9 +105,11 @@ namespace Tugas_Besar
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
+            Produk produk = new Produk();
             DataTable dt = new DataTable();
             dt = Produk.Select(txtboxCariProduk.Text);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["gambar"].Visible = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ColumnHeadersVisible = true;
             dataGridView1.Show();
@@ -137,18 +155,28 @@ namespace Tugas_Besar
                 }
 
             }
-            else if (Convert.ToBoolean(selectedRow.Cells["edit"].Selected) == true)
+            else
             {
-                FormEditProduk frmEditProduk = new FormEditProduk();
-                frmEditProduk.FormClosing += new FormClosingEventHandler(ChildFromClosing);
-                frmEditProduk.Show();
-                this.Hide();
+                
             }
         }
 
         private void FormDataProduk_Load(object sender, EventArgs e)
         {
             loadDataProduk();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormEditProduk frmAdm = new FormEditProduk(user);
+            frmAdm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CetakProduk frmAdm = new CetakProduk();
+            frmAdm.Show();
         }
     }
 }

@@ -33,6 +33,8 @@ namespace Tugas_Besar
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -61,8 +63,6 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -127,6 +127,26 @@ namespace Tugas_Besar
             this.panel5.Size = new System.Drawing.Size(470, 189);
             this.panel5.TabIndex = 45;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(8, 20);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(57, 23);
+            this.button5.TabIndex = 62;
+            this.button5.Text = "Add";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(8, 63);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 23);
+            this.button4.TabIndex = 61;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -169,7 +189,7 @@ namespace Tugas_Besar
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Laki Laki",
+            "Laki - Laki",
             "Perempuan"});
             this.comboBox1.Location = new System.Drawing.Point(238, 21);
             this.comboBox1.Name = "comboBox1";
@@ -348,11 +368,11 @@ namespace Tugas_Besar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 29);
+            this.label6.Location = new System.Drawing.Point(600, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mode Kasir";
+            this.label6.Text = "Transaksi";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
@@ -409,26 +429,6 @@ namespace Tugas_Besar
             this.label3.TabIndex = 4;
             this.label3.Text = "CATAT YUK";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(8, 63);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(57, 23);
-            this.button4.TabIndex = 61;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(8, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(57, 23);
-            this.button5.TabIndex = 62;
-            this.button5.Text = "Add";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormAddPegawai
             // 

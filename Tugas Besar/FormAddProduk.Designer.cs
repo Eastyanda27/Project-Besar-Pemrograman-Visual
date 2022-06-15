@@ -34,6 +34,7 @@ namespace Tugas_Besar
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -134,6 +134,16 @@ namespace Tugas_Besar
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(377, 219);
             this.panel5.TabIndex = 50;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(9, 21);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 23);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label15
             // 
@@ -325,6 +335,7 @@ namespace Tugas_Besar
             this.label5.Size = new System.Drawing.Size(74, 19);
             this.label5.TabIndex = 33;
             this.label5.Text = "Pegawai";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -335,6 +346,7 @@ namespace Tugas_Besar
             this.label4.Size = new System.Drawing.Size(88, 19);
             this.label4.TabIndex = 35;
             this.label4.Text = "Keuangan";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label7
             // 
@@ -345,16 +357,18 @@ namespace Tugas_Besar
             this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 36;
             this.label7.Text = "Laporan";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 29);
+            this.label6.Location = new System.Drawing.Point(596, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mode Kasir";
+            this.label6.Text = "Transaksi";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label1
             // 
@@ -365,6 +379,7 @@ namespace Tugas_Besar
             this.label1.Size = new System.Drawing.Size(49, 19);
             this.label1.TabIndex = 14;
             this.label1.Text = "Profil";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -399,16 +414,6 @@ namespace Tugas_Besar
             this.label3.Text = "CATAT YUK";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(9, 21);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(57, 23);
-            this.button4.TabIndex = 60;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // FormAddProduk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +429,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
             this.Name = "FormAddProduk";
             this.Text = "Add Produk";
             this.Load += new System.EventHandler(this.FormAddProduk_Load);

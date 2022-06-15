@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="pegawai" msprop:Generator_TableClassName="pegawaiDataTable" msprop:Generator_TableVarName="tablepegawai" msprop:Generator_TablePropName="pegawai" msprop:Generator_RowDeletingName="pegawaiRowDeleting" msprop:Generator_RowChangingName="pegawaiRowChanging" msprop:Generator_RowEvHandlerName="pegawaiRowChangeEventHandler" msprop:Generator_RowDeletedName="pegawaiRowDeleted" msprop:Generator_UserTableName="pegawai" msprop:Generator_RowChangedName="pegawaiRowChanged" msprop:Generator_RowEvArgName="pegawaiRowChangeEvent" msprop:Generator_RowClassName="pegawaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username" type="xs:string" minOccurs="0" />
+              <xs:element name="nama" msprop:Generator_ColumnVarNameInTable="columnnama" msprop:Generator_ColumnPropNameInRow="nama" msprop:Generator_ColumnPropNameInTable="namaColumn" msprop:Generator_UserColumnName="nama" type="xs:string" minOccurs="0" />
+              <xs:element name="tanggal_lahir" msprop:Generator_ColumnVarNameInTable="columntanggal_lahir" msprop:Generator_ColumnPropNameInRow="tanggal_lahir" msprop:Generator_ColumnPropNameInTable="tanggal_lahirColumn" msprop:Generator_UserColumnName="tanggal_lahir" type="xs:string" minOccurs="0" />
+              <xs:element name="jenis_kelamin" msprop:Generator_ColumnVarNameInTable="columnjenis_kelamin" msprop:Generator_ColumnPropNameInRow="jenis_kelamin" msprop:Generator_ColumnPropNameInTable="jenis_kelaminColumn" msprop:Generator_UserColumnName="jenis_kelamin" type="xs:string" minOccurs="0" />
+              <xs:element name="no_telepon" msprop:Generator_ColumnVarNameInTable="columnno_telepon" msprop:Generator_ColumnPropNameInRow="no_telepon" msprop:Generator_ColumnPropNameInTable="no_teleponColumn" msprop:Generator_UserColumnName="no_telepon" type="xs:string" minOccurs="0" />
+              <xs:element name="hak_akses" msprop:Generator_ColumnVarNameInTable="columnhak_akses" msprop:Generator_ColumnPropNameInRow="hak_akses" msprop:Generator_ColumnPropNameInTable="hak_aksesColumn" msprop:Generator_UserColumnName="hak_akses" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

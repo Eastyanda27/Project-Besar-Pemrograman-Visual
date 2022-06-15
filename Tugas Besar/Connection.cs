@@ -13,6 +13,19 @@ namespace Tugas_Besar
 {
     public class Connection
     {
-        protected String conString = "server = localhost; database = tugas_besar_visual; uid = root; sslMode = none; password =";
+        public static MySqlConnection conString()
+        {
+            MySqlConnection Conn = null;
+            try
+            {
+                string ConnString = "server=localhost; database=tugas_besar_visual; uid=root; password=;";
+                Conn = new MySqlConnection(ConnString);
+            }
+            catch (MySqlException sqlex)
+            {
+                throw new Exception(sqlex.Message.ToString());
+            }
+            return Conn;
+        }
     }
 }

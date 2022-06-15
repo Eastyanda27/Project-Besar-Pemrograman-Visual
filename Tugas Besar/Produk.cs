@@ -11,10 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Tugas_Besar
 {
-    class Produk
+    class Produk : Connection
     {
-        protected static String conString = "server = localhost; database = tugas_besar_visual; uid = root; sslMode = none; password =";
-        static MySqlConnection conn;
+        static MySqlConnection conn = Connection.conString();
         static MySqlCommand cmd;
 
         public String no_produk { get; set; }
@@ -28,13 +27,14 @@ namespace Tugas_Besar
 
         public Produk()
         {
-            conn = new MySqlConnection(conString);
+            conn = Connection.conString();
             cmd = new MySqlCommand();
         }
 
         public string Insert()
         {
             string result = null;
+            conn.Open();
             using (MySqlCommand cmd = new MySqlCommand("INSERT INTO produk (no_produk,no_barcode," +
                 "nama_produk,jenis_produk,harga_jual,jumlah_produk,jumlah_jual,gambar) " + "VALUES" +
                 "(@no_produk,@no_barcode,@nama_produk,@jenis_produk,@harga_jual,@jumlah_produk," + 
@@ -50,7 +50,6 @@ namespace Tugas_Besar
                 cmd.Parameters.AddWithValue("@gambar", this.gambar);
                 try
                 {
-                    conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
@@ -64,16 +63,15 @@ namespace Tugas_Besar
 
         public static DataTable SelectFull()
         {
-            conn = new MySqlConnection(conString);
+            conn = Connection.conString();
             DataTable dt = new DataTable();
             using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM produk", conn))
             {
                 try
                 {
                     conn.Open();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
-                    conn.Close();
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    dt.Load(rdr);
                 }
                 catch (Exception e)
                 {
@@ -85,7 +83,6 @@ namespace Tugas_Besar
 
         public static DataTable Select(String nama_produk)
         {
-            conn = new MySqlConnection(conString);
             DataTable dt = new DataTable();
             cmd = conn.CreateCommand();
             if (nama_produk != "")
@@ -133,10 +130,10 @@ namespace Tugas_Besar
         public string update()
         {
             string result = null;
-            using (MySqlCommand cmd = new MySqlCommand("UPDATE barang SET no_produk=@no_produk," +
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE produk SET no_produk=@no_produk," +
                 "no_barcode=@no_barcode,nama_produk=@nama_produk,jenis_produk=@jenis_produk," + 
-                "harga_jual=@harga_jual,jumlah_produk=@jumlah_produk,gambar = @gambar WHERE" + 
-                "no_produk=@no_produk", conn))
+                "harga_jual=@harga_jual,jumlah_produk=@jumlah_produk,gambar = @gambar WHERE " + 
+                "nama_produk=@nama_produk", conn))
             {
                 cmd.Parameters.AddWithValue("@no_produk", this.no_produk);
                 cmd.Parameters.AddWithValue("@no_barcode", this.no_barcode);
@@ -157,6 +154,33 @@ namespace Tugas_Besar
                 }
             }
             return result;
+        }
+
+        public DataTable SelectForTrans(String pencarian)
+        {
+            DataTable dt = new DataTable();
+            cmd = conn.CreateCommand();
+            if (nama_produk != "")
+            {
+                cmd.CommandText = "SELECT * FROM produk WHERE no_barcode LIKE '%" + pencarian +
+                    "%' OR nama_produk LIKE '%" + pencarian + "%'";
+                cmd.Parameters.AddWithValue("@no_barcode", pencarian);
+            }
+            else cmd.CommandText = "SELECT * FROM produk";
+
+            try
+            {
+                conn.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                String s = cmd.CommandText;
+                dt.Load(rdr);
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                String error = e.Message;
+            }
+            return dt;
         }
     }
 }

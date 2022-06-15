@@ -15,10 +15,11 @@ namespace Tugas_Besar
 {
     public partial class FormAddPegawai : Form
     {
-        MySqlConnection conn = new MySqlConnection("server = localhost; database = tugas_besar_visual; uid = root; sslMode = none; password =");
-        public FormAddPegawai()
+        User user;
+        public FormAddPegawai(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -29,55 +30,54 @@ namespace Tugas_Besar
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                // display image in picture box  
-                //pbProfile.Image = new Bitmap(open.FileName);
-                // image file path  
                 lblFileName.Text = open.FileName;
-                if (open.FileName != "") pictureBox7.Image = new Bitmap(open.FileName);
+                pictureBox7.Image = new Bitmap(open.FileName);
+                pictureBox7.ImageLocation = open.FileName;
+                pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataPegawai frmAdm = new FormDataPegawai();
+            FormDataPegawai frmAdm = new FormDataPegawai(user);
             frmAdm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.username = textBox2.Text;
-            user.password = textBox1.Text;
-            user.nama = textBox3.Text;
-            user.tanggal_lahir = dateTimePicker1.Value.ToString("yyyyMMdd");
-            user.jenis_kelamin = comboBox1.SelectedItem.ToString();
-            user.no_telepon = textBox4.Text;
-            user.hak_akses = comboBox2.SelectedItem.ToString();
+            User akun = new User();
+            akun.username = textBox2.Text;
+            akun.password = textBox1.Text;
+            akun.nama = textBox3.Text;
+            akun.tanggal_lahir = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            akun.jenis_kelamin = comboBox1.SelectedItem.ToString();
+            akun.no_telepon = textBox4.Text;
+            akun.hak_akses = comboBox2.SelectedItem.ToString();
 
             //copy img
             var source = lblFileName.Text;
             DateTime dateTime = DateTime.Now;
             var fileName = "img_" + dateTime.Ticks.ToString();
-            var destinationFolder = Path.Combine(Environment.CurrentDirectory, "gambar");
+            var destinationFolder = Path.Combine(Environment.CurrentDirectory, "Gambar");
             var destination = Path.Combine(destinationFolder, fileName);
             try
             {
                 File.Copy(source, destination);
-                user.gambar = destination.ToString();
+                akun.gambar = destination.ToString();
             }
             catch (Exception err)
             {
-                user.gambar = "";
+                akun.gambar = "";
                 String error = err.Message;
             }
 
-            String response = user.insert();
+            String response = akun.insert();
             if (response == null)
             {
                 MessageBox.Show("Tambah User Berhasil");
                 this.Close();
-                FormDataPegawai frmAdm = new FormDataPegawai();
+                FormDataPegawai frmAdm = new FormDataPegawai(user);
                 frmAdm.Show();
             }
             else
@@ -89,33 +89,35 @@ namespace Tugas_Besar
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProfil frmAdm = new FormDataProfil();
+            FormDataProfil frmAdm = new FormDataProfil(user);
             frmAdm.Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormDataProduk frmAdm = new FormDataProduk();
+            FormDataProduk frmAdm = new FormDataProduk(user);
             frmAdm.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormKeuanganHarian frmAdm = new FormKeuanganHarian();
+            FormKeuangan frmAdm = new FormKeuangan(user);
             frmAdm.Show();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormTransaksi frmAdm = new FormTransaksi(user);
+            frmAdm.Show();
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLaporanHarian frmAdm = new FormLaporanHarian();
+            FormLaporan frmAdm = new FormLaporan(user);
             frmAdm.Show();
         }
 
@@ -143,7 +145,6 @@ namespace Tugas_Besar
             {
                 random[i] = isi[acak.Next(isi.Length)];
             }
-
             textBox1.Text = new string(random);
         }
     }

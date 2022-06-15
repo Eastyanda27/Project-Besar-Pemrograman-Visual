@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupCatatKuy", "SetupCatatKuy\SetupCatatKuy.vdproj", "{6F2BE864-584F-43AD-AA91-8B554525D627}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F2BE864-584F-43AD-AA91-8B554525D627}.Debug|Default.ActiveCfg = Debug
+		{6F2BE864-584F-43AD-AA91-8B554525D627}.Debug|Default.Build.0 = Debug
+		{6F2BE864-584F-43AD-AA91-8B554525D627}.Release|Default.ActiveCfg = Release
+		{6F2BE864-584F-43AD-AA91-8B554525D627}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A922CE05-EE77-48B6-9C6F-0289E2EB92CF}
+	EndGlobalSection
+EndGlobal

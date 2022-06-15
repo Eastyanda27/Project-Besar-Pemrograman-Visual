@@ -33,13 +33,13 @@ namespace Tugas_Besar
                 MessageBox.Show("User berhasil login");
                 if (user.hak_akses == "Admin")
                 {
-                    FormDashboardAdm frmDashboard = new FormDashboardAdm();
+                    FormDashboardAdm frmDashboard = new FormDashboardAdm(user);
                     frmDashboard.Show();
                     this.Hide();
                 }
                 else if (user.hak_akses == "Pegawai")
                 {
-                    FormDataProfil frmKasir = new FormDataProfil();
+                    FormDashboardPegawai frmKasir = new FormDashboardPegawai(user);
                     frmKasir.Show();
                     this.Hide();
                 }

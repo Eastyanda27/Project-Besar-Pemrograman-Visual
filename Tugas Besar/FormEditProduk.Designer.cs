@@ -34,6 +34,8 @@ namespace Tugas_Besar
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -41,7 +43,6 @@ namespace Tugas_Besar
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@ namespace Tugas_Besar
             this.label3 = new System.Windows.Forms.Label();
             this.lblFileName = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -81,6 +81,7 @@ namespace Tugas_Besar
             this.pictureBox7.Location = new System.Drawing.Point(107, 112);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 58;
             this.pictureBox7.TabStop = false;
             // 
@@ -111,6 +112,7 @@ namespace Tugas_Besar
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(157)))), ((int)(((byte)(184)))));
+            this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.textBox6);
             this.panel5.Controls.Add(this.textBox5);
             this.panel5.Controls.Add(this.label14);
@@ -119,7 +121,6 @@ namespace Tugas_Besar
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.textBox2);
-            this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label9);
@@ -127,6 +128,22 @@ namespace Tugas_Besar
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(377, 219);
             this.panel5.TabIndex = 55;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(9, 65);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(351, 21);
+            this.comboBox1.TabIndex = 56;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(8, 106);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(355, 20);
+            this.textBox6.TabIndex = 55;
             // 
             // textBox5
             // 
@@ -167,7 +184,7 @@ namespace Tugas_Besar
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(94, 16);
             this.label13.TabIndex = 48;
-            this.label13.Text = "Jumlah Barang";
+            this.label13.Text = "Jumlah Produk";
             // 
             // label12
             // 
@@ -181,17 +198,11 @@ namespace Tugas_Besar
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(8, 22);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(158, 20);
             this.textBox2.TabIndex = 44;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(8, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(356, 20);
-            this.textBox1.TabIndex = 43;
             // 
             // label11
             // 
@@ -295,11 +306,11 @@ namespace Tugas_Besar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 29);
+            this.label6.Location = new System.Drawing.Point(597, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mode Kasir";
+            this.label6.Text = "Transaksi";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label1
@@ -365,16 +376,9 @@ namespace Tugas_Besar
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 23);
             this.button3.TabIndex = 61;
-            this.button3.Text = "Tambah Gambar";
+            this.button3.Text = "Ubah Gambar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(8, 106);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(355, 20);
-            this.textBox6.TabIndex = 55;
             // 
             // FormEditProduk
             // 
@@ -391,6 +395,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
             this.Name = "FormEditProduk";
             this.Text = "Edit Produk";
             this.Load += new System.EventHandler(this.FormEditProduk_Load);
@@ -420,11 +425,8 @@ namespace Tugas_Besar
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
@@ -439,5 +441,8 @@ namespace Tugas_Besar
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
     }
 }

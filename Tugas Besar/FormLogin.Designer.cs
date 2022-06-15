@@ -151,7 +151,7 @@ namespace Tugas_Besar
             this.LabelInst.Name = "LabelInst";
             this.LabelInst.Size = new System.Drawing.Size(387, 35);
             this.LabelInst.TabIndex = 6;
-            this.LabelInst.Text = "Masukkan Kata Sandi dan Password";
+            this.LabelInst.Text = "Masukkan Username dan Password";
             this.LabelInst.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ButtonLogin
@@ -196,6 +196,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.FormLogin_Load);

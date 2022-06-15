@@ -96,11 +96,11 @@ namespace Tugas_Besar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 29);
+            this.label6.Location = new System.Drawing.Point(597, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mode Kasir";
+            this.label6.Text = "Transaksi";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
@@ -212,6 +212,9 @@ namespace Tugas_Besar
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Pemasukan",
+            "Pengeluaran"});
             this.comboBox1.Location = new System.Drawing.Point(8, 76);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(309, 21);
@@ -291,6 +294,7 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
             this.Name = "FormAddKeuangan";
             this.Text = "Add Keuangan";
             this.panel2.ResumeLayout(false);

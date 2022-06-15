@@ -55,6 +55,8 @@ namespace Tugas_Besar
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblFileName = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -74,9 +76,10 @@ namespace Tugas_Besar
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.White;
-            this.pictureBox7.Location = new System.Drawing.Point(64, 141);
+            this.pictureBox7.Location = new System.Drawing.Point(81, 141);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(125, 125);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 53;
             this.pictureBox7.TabStop = false;
             // 
@@ -102,6 +105,7 @@ namespace Tugas_Besar
             this.button1.TabIndex = 51;
             this.button1.Text = "SIMPAN";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel5
             // 
@@ -124,6 +128,9 @@ namespace Tugas_Besar
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Laki - Laki",
+            "Perempuan"});
             this.comboBox2.Location = new System.Drawing.Point(238, 21);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(212, 21);
@@ -268,11 +275,11 @@ namespace Tugas_Besar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 29);
+            this.label6.Location = new System.Drawing.Point(598, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Mode Kasir";
+            this.label6.Text = "Transaksi";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
@@ -330,12 +337,37 @@ namespace Tugas_Besar
             this.label3.Text = "CATAT YUK";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblFileName
+            // 
+            this.lblFileName.AutoSize = true;
+            this.lblFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.Location = new System.Drawing.Point(74, 298);
+            this.lblFileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFileName.MaximumSize = new System.Drawing.Size(133, 13);
+            this.lblFileName.MinimumSize = new System.Drawing.Size(133, 13);
+            this.lblFileName.Name = "lblFileName";
+            this.lblFileName.Size = new System.Drawing.Size(133, 13);
+            this.lblFileName.TabIndex = 64;
+            this.lblFileName.Text = "nama file ...";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(91, 272);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 23);
+            this.button3.TabIndex = 63;
+            this.button3.Text = "Ubah Gambar";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormEditProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(221)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.button2);
@@ -343,8 +375,10 @@ namespace Tugas_Besar
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
             this.Name = "FormEditProfil";
             this.Text = "Edit Profil";
+            this.Load += new System.EventHandler(this.FormEditProfil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -355,6 +389,7 @@ namespace Tugas_Besar
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -385,5 +420,7 @@ namespace Tugas_Besar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.Button button3;
     }
 }
